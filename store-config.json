@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "store_id": "org.harrelsons.cleancut-store",
+  "name": { "en_US": "CleanCut Store" },
+  "description": { "en_US": "CleanCut Suite: a profanity filter for Plex. Mutes the swearing in your movies and shows before your kids press play." },
+  "maintainer": "CleanCut Suite",
+  "url": "https://github.com/LumbleHamb/cleancut-store"
+}

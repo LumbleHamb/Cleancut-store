@@ -1,0 +1,79 @@
+# Builds this repo into a CasaOS/ZimaOS store on every push to main and publishes it to the
+# gh-pages branch. People add ONE of these sources in their App Store:
+#   ZimaOS (v2):  https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@gh-pages/store.json
+#   CasaOS (v1):  https://github.com/LumbleHamb/cleancut-store/archive/refs/heads/main.zip
+#                 (works without this workflow: CasaOS only needs a zip with an Apps/ folder;
+#                  the same files are also published at ...@gh-pages/store/main.zip)
+# The v2 build pins each image to its digest, so push here only after the image tag in
+# Apps/CleanCut/docker-compose.yml has been published.
+name: Release Store
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: release-store
+  cancel-in-progress: false
+env:
+  BASE_URL: https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@gh-pages
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build v2 store (ZimaOS)
+        # v1.1.3, the same build the official CasaOS-AppStore uses
+        uses: IceWhaleTech/build-appstore-action@c9bb47fad5b32d7928a07978fad68801f52e910f
+        with:
+          source: .
+          output: dist
+          base-url: ${{ env.BASE_URL }}
+          report-json: out/build-v2-report.json
+
+      - name: Check the v2 build
+        run: |
+          set -euo pipefail
+          test -s dist/store.json
+          test -s dist/index.json
+          python3 - <<'EOF'
+          import json
+          r = json.load(open("out/build-v2-report.json"))
+          s = r["summary"]
+          print("status:", r["status"], "| apps built:", s["apps_built"], "| warnings:", s["warnings_total"])
+          for i in r["issues"]:
+              print(f'{i["severity"]}: {i["code"]}: {i["message"]}')
+          if r["status"] not in ("success", "warning") or s["apps_failed"] or s["apps_built"] < 1:
+              raise SystemExit("v2 store build failed")
+          if any(i["code"] == "IMAGE_DIGEST_PIN_FAILED" for i in r["issues"]):
+              raise SystemExit("The image tag is not published yet. Publish it, then re-run this workflow.")
+          EOF
+
+      - name: Build v1 zip (CasaOS)
+        run: |
+          set -euo pipefail
+          mkdir -p dist/store
+          zip -r dist/store/main.zip Apps category-list.json recommend-list.json README.md \
+            -x '*.png' '*.jpg' '*.webp' '*.svg'
+          unzip -t dist/store/main.zip
+          touch dist/.nojekyll
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./dist
+          force_orphan: true
+
+      - name: Refresh the jsDelivr cache
+        continue-on-error: true
+        run: |
+          for p in store.json index.json store/main.zip; do
+            curl -fsS "https://purge.jsdelivr.net/gh/LumbleHamb/cleancut-store@gh-pages/$p" > /dev/null && echo "refreshed $p"
+          done
+          for p in icon.svg thumbnail.png screenshot-1.png screenshot-2.png screenshot-3.png screenshot-4.png; do
+            curl -fsS "https://purge.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/$p" > /dev/null && echo "refreshed $p"
+          done

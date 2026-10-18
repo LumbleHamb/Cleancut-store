@@ -1,0 +1,110 @@
+# Configuration for big-bear-cleancut setup
+name: big-bear-cleancut
+# Service definitions for the big-bear-cleancut application
+services:
+  # Main CleanCut service configuration
+  cleancut:
+    # Profanity filter for Plex (multi-arch: amd64 and arm64)
+    image: ghcr.io/lumblehamb/clean-media-stack:1.2.0@sha256:640f3c5e70742b537d8ec2e24bc86df701005f75109e8eca2952cf40a634197a
+    # Assign a name to this container instance.
+    container_name: cleancut
+    # Restart the container unless it is stopped by the user.
+    restart: unless-stopped
+    # Give CleanCut time to finish writing a file before it stops.
+    stop_grace_period: 60s
+    # CleanCut needs about 1 GB of memory while it cleans a title.
+    deploy:
+      resources:
+        reservations:
+          memory: 1024M
+    # Only used by the optional VPN and its kill switch, inside the container.
+    cap_add:
+      - NET_ADMIN
+    # Map devices from the host to the container.
+    devices:
+      - /dev/net/tun:/dev/net/tun # Tunnel device for the optional VPN.
+    # Define environment variables for the container.
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      TZ: $TZ
+    # Expose and map specific ports from the container to the host.
+    ports:
+      - 8585:8585 # CleanCut dashboard
+    # Map volumes from the host to the container.
+    volumes:
+      - /DATA/AppData/$AppID/config:/config # Settings, word list, history and backups.
+      - /DATA/Media:/media # Your movie and show folders.
+      - /DATA/Media/data:/data # Optional: where new titles are saved.
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_US: The user that owns your movie and show files.
+        - container: PGID
+          description:
+            en_US: The group that owns your movie and show files.
+        - container: TZ
+          description:
+            en_US: Your time zone, for schedules and logs.
+      volumes:
+        - container: /config
+          description:
+            en_US: CleanCut's settings, word list, history and backups.
+        - container: /media
+          description:
+            en_US: Your movie and show folders. CleanCut adds a clean audio track to each file and keeps the original audio inside it as a backup track.
+        - container: /data
+          description:
+            en_US: Optional. Where new titles from sources you add yourself are saved.
+      ports:
+        - container: "8585"
+          description:
+            en_US: CleanCut dashboard
+x-casaos:
+  # Supported CPU architectures for this application
+  architectures:
+    - amd64
+    - arm64
+  # Stable reverse-domain app identifier
+  id: com.bigbeartechworld.cleancut
+  # Main service for this application
+  main: cleancut
+  # Detailed description for the application
+  description:
+    en_US: |-
+      CleanCut mutes the swearing in the movies and shows on your Plex before your kids press play. It mutes each bad word in the audio (the word, not the whole line) and stars it out in the subtitles. Pick Lite, Moderate or Strict and add your own words. The picture is never re-encoded, and the original audio stays inside each file as a backup track. Clean titles get a Kid Safe label in Plex, so kid profiles only see cleaned titles within the age limit you choose.
+
+      Free trial: 3 movies and 10 TV episodes, every feature, no card. Then buy once: CleanCut Cleaner $14.99 or CleanCut Suite $19.99. No subscription. Needs Plex Media Server; limiting kid profiles by label needs Plex Pass.
+  # Brief tagline for the application
+  tagline:
+    en_US: Profanity filter for Plex
+  # Developer's information
+  developer: CleanCut Suite
+  # Author of this particular configuration
+  author: BigBearTechWorld
+  # Icon URL for the application
+  icon: https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/icon.svg
+  # Thumbnail image for the application (if any)
+  thumbnail: https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/thumbnail.png
+  # Screenshots for the application
+  screenshot_link:
+    - https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/screenshot-1.png
+    - https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/screenshot-2.png
+    - https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/screenshot-3.png
+    - https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/screenshot-4.png
+  # Installation tips
+  tips:
+    before_install:
+      en_US: |-
+        You need Plex Media Server and at least 4 GB of RAM (a Raspberry Pi 5 or a 64-bit Intel/AMD mini-PC). CleanCut sees your movies and shows under /media (your /DATA/Media folder); change that volume before installing if they are on another drive. CleanCut rewrites those files to add the clean audio track, so back up anything irreplaceable first. NET_ADMIN and /dev/net/tun are only used by the optional VPN and its kill switch. After installing, open port 8585 and follow the setup guide: https://shop.harrelsons.org/cleancut/install/
+  # Title for the application
+  title:
+    en_US: CleanCut
+  # Category under which the application falls
+  category: Media
+  # Path and scheme used to open the web UI
+  index: /
+  scheme: http
+  # Default port mapping for the application
+  port_map: "8585"

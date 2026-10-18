@@ -1,7 +1,0 @@
-<StoreSourceCard
-  title="CleanCut Store"
-  summary="CleanCut, a profanity filter for Plex: mutes the swearing in your movies and shows. Paid app with a free trial."
-  url="https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@gh-pages/store.json"
-  maintainer="CleanCut Suite"
-  repo-url="https://github.com/LumbleHamb/cleancut-store"
-/>

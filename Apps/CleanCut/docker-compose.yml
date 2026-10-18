@@ -17,6 +17,7 @@ services:
   clean-media:
     image: ghcr.io/lumblehamb/clean-media-stack:1.2.0
     container_name: clean-media
+    network_mode: bridge             # no new Docker network needed (some servers have none left)
     restart: unless-stopped
     stop_grace_period: 60s
     deploy:

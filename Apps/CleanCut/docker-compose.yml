@@ -15,7 +15,7 @@
 name: clean-media
 services:
   clean-media:
-    image: ghcr.io/lumblehamb/clean-media-stack:1.1.1
+    image: ghcr.io/lumblehamb/clean-media-stack:1.2.0
     container_name: clean-media
     restart: unless-stopped
     stop_grace_period: 60s
@@ -146,10 +146,12 @@ x-casaos:
   architectures:
     - amd64
     - arm64
-  version: "1.1.1"
-  update_at: "2026-10-17"
+  version: "1.2.0"
+  update_at: "2026-10-18"
   release_notes:
     en_US: |-
+      - New: CleanCut Cleaner ($14.99), just the cleaning for the movies already on your Plex. Upgrade to Suite any time for $5.
+      - Your license key now decides the edition; existing keys stay Suite.
       - Setup now starts with one question: clean the movies and shows already on your Plex, or also find and download new ones.
       - Choose your own movie and show folders to clean. The original audio stays inside each file as a backup.
       - Video shrinking stays off for your own folders unless you turn it on.

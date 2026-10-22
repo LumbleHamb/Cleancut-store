@@ -20,9 +20,9 @@ CleanCut Suite is an all-in-one media manager and profanity filter for Plex. It 
 CleanCut is commercial software. Every feature is free for **3 movies and 10 TV episodes**, no card needed. After that it is a one-time purchase: **CleanCut Cleaner $2.99** or **CleanCut Suite $5.99** (upgrade from Cleaner: $3). These are launch prices; the price rises for new buyers as features are added, and a bought license never expires. No subscription. The listing says this in the description.
 Website: https://shop.harrelsons.org/cleancut/
 
-### Why `NET_ADMIN` and `/dev/net/tun`
+### Why `NET_ADMIN`
 
-Both are used **only** by an optional, built-in VPN with a kill switch, which runs inside the container's own network namespace. It is off by default. The container does not change the host's network settings. The before-install tip says so too.
+It is used **only** by an optional, built-in VPN with a kill switch, which runs inside the container's own network namespace. The VPN creates its own tunnel device, so no `/dev/net/tun` mapping is needed. It is off by default. The container does not change the host's network settings. The before-install tip says so too.
 
 ### Multi-arch
 

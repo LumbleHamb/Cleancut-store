@@ -10,9 +10,7 @@ services:
         reservations:
           memory: 1024M
     cap_add:
-      - NET_ADMIN
-    devices:
-      - /dev/net/tun:/dev/net/tun
+      - NET_ADMIN # only for the optional VPN; it creates its own tunnel device
     environment:
       PUID: $PUID
       PGID: $PGID
@@ -57,10 +55,6 @@ services:
         - container: /data
           description:
             en_US: Optional. Where new titles from sources you add yourself are saved (on your big media drive).
-      devices:
-        - container: /dev/net/tun
-          description:
-            en_US: Network tunnel for the optional VPN. Only used if you turn the VPN on.
 x-casaos:
   id: org.harrelsons.cleancut
   architectures:
@@ -98,9 +92,9 @@ x-casaos:
   tips:
     before_install:
       en_US: |-
-        You need Plex Media Server and at least 4 GB of RAM (a Raspberry Pi 5 or a 64-bit Intel/AMD mini-PC). CleanCut sees your movies and shows under /media (your /DATA/Media folder). If they are on another drive, change the /media folder under Volumes before installing. CleanCut rewrites those files to add the clean audio track, so back up anything irreplaceable first.
+        You need Plex Media Server (Plex Pass is needed to limit kid profiles to Kid Safe titles) and at least 4 GB of RAM (a Raspberry Pi 5 or a 64-bit Intel/AMD mini-PC). CleanCut sees your movies and shows under /media (your /DATA/Media folder). If they are on another drive, change the /media folder under Volumes before installing. CleanCut rewrites those files to add the clean audio track, so back up anything irreplaceable first.
 
-        The NET_ADMIN permission and /dev/net/tun are only used by the optional VPN and its kill switch, inside the container.
+        The NET_ADMIN permission is only used by the optional VPN and its kill switch, inside the container.
 
         After installing, open CleanCut on port 8585 and follow the setup guide (about ten minutes). Guide: https://shop.harrelsons.org/cleancut/install/
   index: /

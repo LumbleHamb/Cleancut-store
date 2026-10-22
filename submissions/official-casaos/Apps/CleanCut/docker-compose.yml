@@ -1,7 +1,7 @@
 name: clean-media
 services:
   clean-media:
-    image: ghcr.io/lumblehamb/clean-media-stack:1.2.0
+    image: ghcr.io/lumblehamb/clean-media-stack:1.2.1@sha256:955fd885f4e0d4904687f0433d5c9c4ad5cb4a63b854247eee1868deedadae74
     container_name: clean-media
     restart: unless-stopped
     stop_grace_period: 60s
@@ -106,7 +106,7 @@ x-casaos:
   index: /
   scheme: http
   port_map: "8585"
-  version: "1.2.0"
+  version: "1.2.1"
   update_at: "2026-10-18"
   release_notes:
     en_US: |-

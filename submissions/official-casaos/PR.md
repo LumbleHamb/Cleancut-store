@@ -1,10 +1,10 @@
 # Pull request title
 
-feat(appstore): add CleanCut 1.2.0
+feat(appstore): add CleanCut 1.2.1
 
 # Pull request description (copy everything below this line)
 
-## New app: CleanCut 1.2.0
+## New app: CleanCut 1.2.1
 
 This PR adds a **new app**, `Apps/CleanCut/` (`x-casaos.id: org.harrelsons.cleancut`). No other files are changed.
 
@@ -13,7 +13,7 @@ This PR adds a **new app**, `Apps/CleanCut/` (`x-casaos.id: org.harrelsons.clean
 CleanCut Suite is an all-in-one media manager and profanity filter for Plex. It finds and adds new movies and shows (like Radarr, Sonarr and a download client in one app, from sources the user adds themselves), and it mutes the bad words in the movies and shows in your Plex library (just the word, not the whole line) and stars them out in the subtitles. The picture is never re-encoded, and the original audio stays inside each file as a backup track, so any mute can be undone. Cleaned titles get a **Kid Safe** label in Plex, so kid profiles only see titles that are cleaned and within the age limit the parent picks. Everything runs on the user's own server; nothing is uploaded. CleanCut Cleaner, the smaller edition, is just the cleaning, for media the user already has.
 
 - One container, one web page (port 8585).
-- Image: `ghcr.io/lumblehamb/clean-media-stack:1.2.0` (public, pinned to the release tag).
+- Image: `ghcr.io/lumblehamb/clean-media-stack:1.2.1@sha256:955fd885f4e0d4904687f0433d5c9c4ad5cb4a63b854247eee1868deedadae74` (public, pinned to the release tag).
 
 ### Paid app with a free trial
 
@@ -52,6 +52,6 @@ A free full-feature reviewer key is available. Email **ethen@harrelsons.org** an
 
 - [x] New app (not an update)
 - [x] Top-level `name` and reverse-domain `x-casaos.id`
-- [x] Image pinned to a version tag (`1.2.0`), no `latest`
+- [x] Image pinned to a version tag (`1.2.1`), no `latest`
 - [x] `icon.svg`, `thumbnail.png` (784x442) and 4 screenshots (1280x720) included
 - [x] Support: https://shop.harrelsons.org/cleancut/help/ and ethen@harrelsons.org

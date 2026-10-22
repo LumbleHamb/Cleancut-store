@@ -15,7 +15,7 @@
 name: clean-media
 services:
   clean-media:
-    image: ghcr.io/lumblehamb/clean-media-stack:1.2.0
+    image: ghcr.io/lumblehamb/clean-media-stack:1.2.1
     container_name: clean-media
     network_mode: bridge             # no new Docker network needed (some servers have none left)
     restart: unless-stopped
@@ -156,7 +156,7 @@ x-casaos:
   architectures:
     - amd64
     - arm64
-  version: "1.2.0"
+  version: "1.2.1"
   update_at: "2026-10-18"
   release_notes:
     en_US: |-

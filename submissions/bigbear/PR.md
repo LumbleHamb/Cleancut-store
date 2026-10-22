@@ -1,10 +1,10 @@
 # Pull request title
 
-Add CleanCut 1.2.0 (all-in-one media manager and profanity filter for Plex)
+Add CleanCut 1.2.1 (all-in-one media manager and profanity filter for Plex)
 
 # Pull request description (copy everything below this line)
 
-## New app: CleanCut 1.2.0
+## New app: CleanCut 1.2.1
 
 Adds `Apps/cleancut/` (`docker-compose.yml` + `config.json`), `x-casaos.id: com.bigbeartechworld.cleancut`. No other files are changed.
 
@@ -14,7 +14,7 @@ Adds `Apps/cleancut/` (`docker-compose.yml` + `config.json`), `x-casaos.id: com.
 
 **Why `NET_ADMIN` and `/dev/net/tun`.** Only for an optional, built-in VPN with a kill switch, inside the container's own network namespace. Off by default; the host network is not touched.
 
-**Multi-arch.** `ghcr.io/lumblehamb/clean-media-stack:1.2.0` is a public multi-arch image (linux/amd64 + linux/arm64), pinned here to its index digest `sha256:640f3c5e...197a`.
+**Multi-arch.** `ghcr.io/lumblehamb/clean-media-stack:1.2.1@sha256:955fd885f4e0d4904687f0433d5c9c4ad5cb4a63b854247eee1868deedadae74` is a public multi-arch image (linux/amd64 + linux/arm64), pinned here to its index digest `sha256:640f3c5e...197a`.
 
 **Content sources.** CleanCut works on the user's own media folders and **ships with no download sources**: the optional media manager works only with sources the user adds themselves, none are included or enabled by default, and the user is responsible for what they download.
 

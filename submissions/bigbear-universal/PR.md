@@ -1,6 +1,6 @@
-Add CleanCut 1.2.0 (media manager and profanity filter for Plex, paid app)
+Add CleanCut 1.2.1 (media manager and profanity filter for Plex, paid app)
 
-## New app: CleanCut 1.2.0
+## New app: CleanCut 1.2.1
 
 Adds `apps/cleancut/` (`app.json` + `docker-compose.yml`). No other files are changed.
 
@@ -14,7 +14,7 @@ Adds `apps/cleancut/` (`app.json` + `docker-compose.yml`). No other files are ch
 
 **Why `NET_ADMIN` and `/dev/net/tun`.** Only for the optional built-in VPN with a kill switch, inside the container's own network namespace. Off by default; the host network is not touched.
 
-**Image.** `ghcr.io/lumblehamb/clean-media-stack:1.2.0`, public, multi-arch (amd64 + arm64), pinned to its index digest.
+**Image.** `ghcr.io/lumblehamb/clean-media-stack:1.2.1@sha256:955fd885f4e0d4904687f0433d5c9c4ad5cb4a63b854247eee1868deedadae74`, public, multi-arch (amd64 + arm64), pinned to its index digest.
 
 **Validated:** `app.json` passes `schemas/app-schema-v1.json`; `docker compose config` passes.
 

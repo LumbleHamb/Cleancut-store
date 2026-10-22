@@ -1,0 +1,83 @@
+manifestVersion: 1
+id: cleancut-cleancut
+storage:
+  dataRoot: data
+folderAccess:
+  - id: umbrel-downloads
+    name: Movies and shows
+    note: The folder with your movies and shows, the same one Plex uses (Umbrel's Downloads by default). Available inside CleanCut at /media and /downloads. CleanCut adds a clean audio track to each file, so it needs write access.
+    mounts:
+      - service: server
+        targetPath: /media
+      - service: server
+        targetPath: /downloads
+environment:
+  - name: TZ
+    services:
+      - server
+    default: Etc/UTC
+    note: Your time zone, for schedules and logs (for example America/Chicago).
+category: media
+name: CleanCut Suite
+version: "1.2.1"
+tagline: All-in-one media manager and profanity filter for Plex
+icon: https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/icon.svg
+description: >-
+  CleanCut Suite is a paid app with a free trial: 3 movies and 10 TV episodes, every
+  feature, no card. Then CleanCut Cleaner $2.99 or CleanCut Suite $5.99, once (Cleaner to
+  Suite later: $3). There is no subscription. These are launch prices: the price rises for
+  new buyers as features are added, and if you've bought, it's yours forever, with free
+  updates. 30-day money-back guarantee.
+
+
+  Before you start: you need Plex Media Server (the Plex app from the Umbrel App Store
+  works). CleanCut cleans the movies and shows in your Umbrel Downloads folder, the same
+  folder the Plex app uses. It rewrites those files to add a clean audio track and keeps the
+  original audio inside each file as a backup track, so back up anything irreplaceable first.
+  Then open CleanCut and follow the setup guide (about ten minutes).
+
+
+  CleanCut mutes each bad word in the audio (the word, not the whole line) and stars it out
+  in the subtitles. You pick the level (Lite, Moderate or Strict) and can add your own words.
+  The picture is never re-encoded. No subtitles? CleanCut can listen to the audio itself, on
+  your server. Nothing is uploaded.
+
+
+  Clean titles get a Kid Safe label in Plex, so kid profiles only see titles that are cleaned
+  and within the age limit you choose (limiting profiles by label needs Plex Pass).
+
+
+  Media manager (CleanCut Suite): CleanCut finds and adds new movies and shows for you, and
+  cleans them as they arrive. It works with sources you add yourself: no sources are included
+  or enabled by default, and you are responsible for what you download. An optional built-in
+  VPN with a kill switch is the only reason the app asks for the NET_ADMIN permission.
+  CleanCut Cleaner is just the cleaning, for media you already have.
+
+
+  Install guide: https://shop.harrelsons.org/cleancut/install/
+releaseNotes: >-
+  Choose your own movie and show folders to clean; the original audio stays inside each file
+  as a backup. No sources are included or enabled by default. New prices: CleanCut Cleaner
+  $2.99, CleanCut Suite $5.99, upgrade $3.
+
+developer: CleanCut Suite
+website: https://shop.harrelsons.org/cleancut/
+dependencies: []
+repo: https://github.com/LumbleHamb/cleancut-store
+support: https://shop.harrelsons.org/cleancut/help/
+
+port: 8585
+gallery:
+  - https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/screenshot-1.png
+  - https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/screenshot-2.png
+  - https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/screenshot-3.png
+  - https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/screenshot-4.png
+path: ""
+permissions:
+  - STORAGE_DOWNLOADS
+
+defaultUsername: ""
+defaultPassword: ""
+
+submitter: CleanCut Suite
+submission: https://github.com/LumbleHamb/cleancut-store

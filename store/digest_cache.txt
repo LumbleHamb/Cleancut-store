@@ -1,0 +1,1 @@
+ghcr.io/lumblehamb/clean-media-stack:1.2.1 sha256:4ae7bbf40224d44a406cb01751cdf9a8f523185e9aec3b2b3f8cb001b0230cb2

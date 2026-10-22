@@ -7,7 +7,7 @@
 # Kept identical to the Custom Install (casaos-app.yaml in the app repo) on purpose, so
 # people who move over keep their settings:
 #   name / service / container  clean-media  -> settings stay in /DATA/AppData/clean-media/config
-#   port 8585, /DATA/Media -> /media, /DATA/Media/data -> /data, NET_ADMIN + /dev/net/tun,
+#   port 8585, /DATA/Media -> /media, /DATA/Media/data -> /data, NET_ADMIN,
 #   60 s stop grace, PUID/PGID/TZ.
 # The image is pinned to the release tag. The store build adds the matching digest for each
 # architecture itself (docker-compose.<arch>.yml in the built store), so no digest here.
@@ -25,10 +25,8 @@ services:
         reservations:
           memory: 1024M
     cap_add:
-      - NET_ADMIN                      # only for the optional VPN and its kill switch (inside the container)
-    devices:
-      - /dev/net/tun:/dev/net/tun      # the optional VPN's tunnel device
-      # Intel/AMD graphics (optional, faster video shrinking): add /dev/dri:/dev/dri here.
+      - NET_ADMIN                      # only for the optional VPN and its kill switch (inside the container); the VPN creates its own tunnel device
+    # Intel/AMD graphics (optional, faster video shrinking): add a devices: entry for /dev/dri:/dev/dri here.
     environment:
       PUID: $PUID
       PGID: $PGID
@@ -77,11 +75,6 @@ services:
             en_US: >-
               Where new titles are saved if you turn on finding and downloading
               (on your big media drive). Optional.
-      devices:
-        - container: /dev/net/tun
-          description:
-            en_US: >-
-              Network tunnel for the optional VPN. Only used if you turn the VPN on.
 
 x-casaos:
   id: org.harrelsons.cleancut
@@ -141,13 +134,13 @@ x-casaos:
   tips:
     before_install:
       en_US: >-
-        You need Plex Media Server and at least 4 GB of RAM (a Raspberry Pi 5
+        You need Plex Media Server (Plex Pass is needed to limit kid profiles
+        to Kid Safe titles) and at least 4 GB of RAM (a Raspberry Pi 5
         or a 64-bit Intel/AMD mini-PC). CleanCut sees your movies and shows
         under /media (your /DATA/Media folder). If they are on another drive,
         change the /media folder under Volumes before installing. CleanCut
         rewrites those files to add the clean audio track, so back up anything
-        irreplaceable first. The NET_ADMIN permission and /dev/net/tun are only
-        used by the optional VPN and its kill switch. After installing, open
+        irreplaceable first. The NET_ADMIN permission is only used by the optional VPN and its kill switch. After installing, open
         CleanCut on port 8585 and follow the setup guide (about ten minutes).
         Guide: https://shop.harrelsons.org/cleancut/install/
   author: CleanCut Suite

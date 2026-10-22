@@ -10,14 +10,14 @@ This PR adds a **new app**, `Apps/CleanCut/` (`x-casaos.id: org.harrelsons.clean
 
 ### What it is
 
-CleanCut is a profanity filter for Plex. It mutes the bad words in the movies and shows in your Plex library (just the word, not the whole line) and stars them out in the subtitles. The picture is never re-encoded, and the original audio stays inside each file as a backup track, so any mute can be undone. Cleaned titles get a **Kid Safe** label in Plex, so kid profiles only see titles that are cleaned and within the age limit the parent picks. Everything runs on the user's own server; nothing is uploaded.
+CleanCut Suite is an all-in-one media manager and profanity filter for Plex. It finds and adds new movies and shows (like Radarr, Sonarr and a download client in one app, from sources the user adds themselves), and it mutes the bad words in the movies and shows in your Plex library (just the word, not the whole line) and stars them out in the subtitles. The picture is never re-encoded, and the original audio stays inside each file as a backup track, so any mute can be undone. Cleaned titles get a **Kid Safe** label in Plex, so kid profiles only see titles that are cleaned and within the age limit the parent picks. Everything runs on the user's own server; nothing is uploaded. CleanCut Cleaner, the smaller edition, is just the cleaning, for media the user already has.
 
 - One container, one web page (port 8585).
 - Image: `ghcr.io/lumblehamb/clean-media-stack:1.2.0` (public, pinned to the release tag).
 
 ### Paid app with a free trial
 
-CleanCut is commercial software. Every feature is free for **3 movies and 10 TV episodes**, no card needed. After that it is a one-time purchase: **CleanCut Cleaner $14.99** or **CleanCut Suite $19.99**. No subscription. The listing says this in the description.
+CleanCut is commercial software. Every feature is free for **3 movies and 10 TV episodes**, no card needed. After that it is a one-time purchase: **CleanCut Cleaner $2.99** or **CleanCut Suite $5.99** (upgrade from Cleaner: $3). These are launch prices; the price rises for new buyers as features are added, and a bought license never expires. No subscription. The listing says this in the description.
 Website: https://shop.harrelsons.org/cleancut/
 
 ### Why `NET_ADMIN` and `/dev/net/tun`
@@ -30,7 +30,7 @@ The image is a multi-arch manifest for **linux/amd64** and **linux/arm64** (64-b
 
 ### Content sources
 
-CleanCut works on the user's own media folders. It **ships with no download sources** of any kind; the optional fetch feature is empty until the user adds a source themselves.
+CleanCut works on the user's own media folders. It **ships with no download sources** of any kind: the optional media manager works only with sources the user adds themselves, no sources are included or enabled by default, and the user is responsible for what they download.
 
 ### Reviewer license key
 

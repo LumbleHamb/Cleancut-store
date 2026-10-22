@@ -81,14 +81,18 @@ x-casaos:
   title:
     en_US: CleanCut
   tagline:
-    en_US: Profanity filter for Plex. Mutes the swearing before your kids press play.
+    en_US: All-in-one media manager and profanity filter for Plex.
   description:
     en_US: |-
-      CleanCut mutes the swearing in the movies and shows on your Plex before your kids press play. Choose the folders your movies and shows are in, and CleanCut mutes each bad word in the audio (the word, not the whole line) and stars it out in the subtitles. You pick the level (Lite, Moderate or Strict) and can add your own words. The picture is never re-encoded, and the original audio stays inside each file as a backup track, so you can undo a mute later. No subtitles? CleanCut can listen to the audio itself, on your server. Nothing is uploaded.
+      CleanCut Suite is an all-in-one media manager and profanity filter for Plex. It finds and adds new movies and shows (like Radarr, Sonarr and a download client in one app) and mutes the swearing in the movies and shows on your Plex before your kids press play. CleanCut Cleaner is just the cleaning, for media you already have.
+
+      Choose the folders your movies and shows are in, and CleanCut mutes each bad word in the audio (the word, not the whole line) and stars it out in the subtitles. You pick the level (Lite, Moderate or Strict) and can add your own words. The picture is never re-encoded, and the original audio stays inside each file as a backup track, so you can undo a mute later. No subtitles? CleanCut can listen to the audio itself, on your server. Nothing is uploaded.
 
       Clean titles get a Kid Safe label in Plex, so kid profiles only see titles that are cleaned and within the age limit you choose (for example, up to PG). New titles stay hidden from kids until they are cleaned.
 
-      Free trial: 3 movies and 10 TV episodes, every feature, no card. After the trial, buy once: CleanCut Cleaner $14.99 or CleanCut Suite $19.99. No subscription, free updates, 30-day money-back guarantee.
+      Media manager (CleanCut Suite): it works with sources you add yourself. No sources are included or enabled by default, and you are responsible for what you download. An optional built-in VPN with a kill switch keeps your home address private while it downloads.
+
+      Free trial: 3 movies and 10 TV episodes, every feature, no card. After the trial, buy once: CleanCut Cleaner $2.99 or CleanCut Suite $5.99 (Cleaner to Suite later: $3). These are launch prices: the price rises for new buyers as features are added; once bought, it's yours forever. No subscription, free updates, 30-day money-back guarantee.
 
       You need Plex Media Server. Limiting kid profiles by label needs a Plex Pass subscription, which is sold by Plex, not by CleanCut.
   tips:
@@ -107,7 +111,7 @@ x-casaos:
   release_notes:
     en_US: |-
       - First release in the ZimaOS App Store.
-      - Two editions, chosen by your license key: CleanCut Cleaner ($14.99) and CleanCut Suite ($19.99). Upgrade from Cleaner to Suite any time for $5.
+      - Two editions, chosen by your license key: CleanCut Cleaner ($2.99, just the cleaning) and CleanCut Suite ($5.99, the all-in-one media manager and profanity filter). Upgrade from Cleaner to Suite any time for $3. Launch prices: the price rises for new buyers as features are added; yours forever once bought.
       - Setup starts with one question: which movie and show folders to clean.
       - The original audio stays inside each file as a backup track.
   website: https://shop.harrelsons.org/cleancut/

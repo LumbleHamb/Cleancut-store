@@ -17,6 +17,7 @@ services:
   clean-media:
     image: ghcr.io/lumblehamb/clean-media-stack:1.2.0
     container_name: clean-media
+    network_mode: bridge             # no new Docker network needed (some servers have none left)
     restart: unless-stopped
     stop_grace_period: 60s
     deploy:
@@ -98,11 +99,17 @@ x-casaos:
   title:
     en_US: CleanCut Suite
   tagline:
-    en_US: Profanity filter for Plex. Mutes the swearing before your kids press play.
+    en_US: All-in-one media manager and profanity filter for Plex.
   description:
     en_US: >-
-      CleanCut mutes the swearing in the movies and shows on your Plex before
-      your kids press play. Choose the folders your movies and shows are in, and
+      CleanCut Suite is an all-in-one media manager and profanity filter for
+      Plex. It finds and adds new movies and shows, like Radarr, Sonarr and a
+      download client in one app, and it mutes the swearing in the movies and
+      shows on your Plex before your kids press play. CleanCut Cleaner is just
+      the cleaning, for media you already have.
+
+
+      Choose the folders your movies and shows are in, and
       CleanCut mutes each bad word in the audio (the word, not the whole line)
       and stars it out in the subtitles. You pick the level (Lite, Moderate or
       Strict) and can add your own words. The picture is never re-encoded, and
@@ -116,15 +123,18 @@ x-casaos:
       PG). New titles stay hidden from kids until they are cleaned.
 
 
-      Optional: CleanCut can also find and download new movies and shows for
-      you, and clean them as they arrive. It comes with no search sites; you add
-      the ones you have permission to use. A VPN is optional and recommended to
-      keep your home address private while CleanCut downloads.
+      Media manager (CleanCut Suite): CleanCut finds and adds new movies and
+      shows for you, and cleans them as they arrive. It works with sources you
+      add yourself: no sources are included or enabled by default, and you are
+      responsible for what you download. An optional built-in VPN with a kill
+      switch keeps your home address private while CleanCut downloads.
 
 
       Free trial: 3 movies and 10 TV episodes, every feature, no card. Then
-      $19.99 once - launch price. The price goes up after launch; buy now and
-      it's yours for life, with free updates. There is no CleanCut subscription.
+      CleanCut Cleaner $2.99 or CleanCut Suite $5.99, once (Cleaner to Suite
+      later: $3). These are launch prices: the price rises for new buyers as
+      features are added, and if you've bought, it's yours forever, with free
+      updates. There is no CleanCut subscription.
       You need Plex Media Server. Limiting kid profiles by label needs Plex Pass
       (Plex Pass and a VPN are separate services from other companies).
       30-day money-back guarantee.
@@ -150,12 +160,12 @@ x-casaos:
   update_at: "2026-10-18"
   release_notes:
     en_US: |-
-      - New: CleanCut Cleaner ($14.99), just the cleaning for the movies already on your Plex. Upgrade to Suite any time for $5.
+      - New prices: CleanCut Cleaner $2.99 (just the cleaning for the movies already on your Plex), CleanCut Suite $5.99 (the all-in-one media manager and profanity filter). Upgrade to Suite any time for $3. Launch prices: the price rises for new buyers as features are added; yours forever once bought.
       - Your license key now decides the edition; existing keys stay Suite.
       - Setup now starts with one question: clean the movies and shows already on your Plex, or also find and download new ones.
       - Choose your own movie and show folders to clean. The original audio stays inside each file as a backup.
       - Video shrinking stays off for your own folders unless you turn it on.
-      - Search sites: CleanCut adds none for you. Settings lists every public site A to Z, and you add the ones you want.
+      - Sources: no sources are included or enabled by default. You add the ones you want yourself, in Settings.
       - Downloads now stop sharing with other people as soon as they finish. To change that, use the new setting Keep sharing after a download finishes (off by default).
       - Family collections have new names.
   website: https://shop.harrelsons.org/cleancut/

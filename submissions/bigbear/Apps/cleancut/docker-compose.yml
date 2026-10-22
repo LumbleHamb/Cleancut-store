@@ -4,7 +4,7 @@ name: big-bear-cleancut
 services:
   # Main CleanCut service configuration
   cleancut:
-    # Profanity filter for Plex (multi-arch: amd64 and arm64)
+    # All-in-one media manager and profanity filter for Plex (multi-arch: amd64 and arm64)
     image: ghcr.io/lumblehamb/clean-media-stack:1.2.0@sha256:640f3c5e70742b537d8ec2e24bc86df701005f75109e8eca2952cf40a634197a
     # Assign a name to this container instance.
     container_name: cleancut
@@ -73,12 +73,14 @@ x-casaos:
   # Detailed description for the application
   description:
     en_US: |-
+      CleanCut Suite is an all-in-one media manager and profanity filter for Plex. It finds and adds new movies and shows (like Radarr, Sonarr and a download client in one app) from sources you add yourself; no sources are included or enabled by default, and you are responsible for what you download. An optional built-in VPN has a kill switch. CleanCut Cleaner is just the cleaning, for media you already have.
+
       CleanCut mutes the swearing in the movies and shows on your Plex before your kids press play. It mutes each bad word in the audio (the word, not the whole line) and stars it out in the subtitles. Pick Lite, Moderate or Strict and add your own words. The picture is never re-encoded, and the original audio stays inside each file as a backup track. Clean titles get a Kid Safe label in Plex, so kid profiles only see cleaned titles within the age limit you choose.
 
-      Free trial: 3 movies and 10 TV episodes, every feature, no card. Then buy once: CleanCut Cleaner $14.99 or CleanCut Suite $19.99. No subscription. Needs Plex Media Server; limiting kid profiles by label needs Plex Pass.
+      Free trial: 3 movies and 10 TV episodes, every feature, no card. Then buy once: CleanCut Cleaner $2.99 or CleanCut Suite $5.99 (Cleaner to Suite later: $3). Launch prices: the price rises for new buyers as features are added; once bought, it's yours forever. No subscription. Needs Plex Media Server; limiting kid profiles by label needs Plex Pass.
   # Brief tagline for the application
   tagline:
-    en_US: Profanity filter for Plex
+    en_US: All-in-one media manager and profanity filter for Plex
   # Developer's information
   developer: CleanCut Suite
   # Author of this particular configuration

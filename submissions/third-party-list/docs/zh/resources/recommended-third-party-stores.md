@@ -30,7 +30,7 @@
 
 <StoreSourceCard
   title="CleanCut 应用商店"
-  summary="CleanCut：适用于 Plex 的脏话过滤器，自动静音电影和剧集中的脏话。付费应用，可免费试用。"
+  summary="CleanCut Suite：适用于 Plex 的一体化媒体管理器和脏话过滤器，从你自己添加的来源添加电影和剧集，并自动静音脏话。付费应用，可免费试用。"
   url="https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@gh-pages/store.json"
   maintainer="CleanCut Suite"
   copy-label="复制链接"

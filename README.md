@@ -2,15 +2,19 @@
 
 The app store for **CleanCut Suite** on CasaOS and ZimaOS.
 
-CleanCut Suite is a profanity filter for Plex. It mutes the swearing in the movies and shows on
-your Plex before your kids press play: just the word, not the whole line, and it stars the word
-out in the subtitles too. The original audio stays inside each file as a backup track. Clean
-titles get a Kid Safe label in Plex, so kid profiles only see clean titles within the age limit
-you choose. If you like, CleanCut can also find and download new movies and shows and clean them
-as they arrive (optional, with an optional VPN to keep your home address private). Try it free on
-3 movies and 10 TV episodes, with every feature and no card. Then it's $19.99 once - launch price.
-The price goes up after launch; buy now and it's yours for life, with free updates. There is no
-CleanCut subscription. 30-day money-back guarantee: if CleanCut won't run on your server, or
+**CleanCut Suite: an all-in-one media manager and profanity filter for Plex.** It finds and adds
+new movies and shows, like Radarr, Sonarr and a download client in one app, and works with sources
+you add yourself: no sources are included or enabled by default, and you're responsible for what
+you download. It cleans the language automatically: it mutes just the word, not the whole line,
+stars it out in the subtitles, and listens to the audio when subtitles are missing. The original
+audio stays inside each file as a backup track. Clean titles get a Kid Safe label in Plex, so kid
+profiles only see clean titles within the age limit you choose, and there's an optional built-in
+VPN with a kill switch. CleanCut Cleaner is just the cleaning, for media you already have.
+
+Try it free on 3 movies and 10 TV episodes, with every feature and no card. Then it's **$2.99**
+(CleanCut Cleaner) or **$5.99** (CleanCut Suite), once; Cleaner to Suite later is $3. These are
+launch prices: the price rises for new buyers as features are added, and if you've bought, it's
+yours forever, with free updates. There is no CleanCut subscription. 30-day money-back guarantee: if CleanCut won't run on your server, or
 doesn't do what its page says, email ethen@harrelsons.org within 30 days and we'll refund you in
 full.
 

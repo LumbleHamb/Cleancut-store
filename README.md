@@ -1,6 +1,6 @@
 # CleanCut Store
 
-The app store for **CleanCut Suite** on CasaOS and ZimaOS.
+The app store for **CleanCut Suite** on CasaOS, ZimaOS, Umbrel and Portainer.
 
 **CleanCut Suite: an all-in-one media manager and profanity filter for Plex.** It finds and adds
 new movies and shows, like Radarr, Sonarr and a download client in one app, and works with sources
@@ -66,6 +66,42 @@ another drive, change the `/media` folder under **Volumes** before you install. 
 clean audio track to each file, so **back up anything irreplaceable first**.
 
 Full install guide: https://shop.harrelsons.org/cleancut/install/
+
+## Install on Umbrel
+
+1. Open the **App Store**, click the **⋯** button at the top right and choose
+   **Community App Stores**.
+2. Paste this address and click **Add**:
+
+   ```
+   https://github.com/LumbleHamb/cleancut-store
+   ```
+
+3. Open the **CleanCut App Store**, choose **CleanCut Suite** and click **Install**.
+
+CleanCut cleans the movies and shows in your Umbrel **Downloads** folder, the same folder the
+Plex app from the Umbrel App Store uses (inside CleanCut it's `/media`). CleanCut adds a clean
+audio track to each file, so **back up anything irreplaceable first**. Open CleanCut from your
+home screen and follow the setup guide.
+
+## Install on Portainer
+
+1. In Portainer, go to **Settings** > **App Templates**.
+2. Paste this address in the **URL** field and click **Save settings**:
+
+   ```
+   https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/portainer/templates.json
+   ```
+
+3. Go to **Templates** > **Application** in your environment and choose **CleanCut Suite**.
+4. Set **Movies and shows folder** to the same folder Plex uses (it becomes `/media`), check
+   the other folders and IDs, and click **Deploy the stack**.
+5. Open CleanCut on port 8585 and follow the setup guide.
+
+This replaces Portainer's own template list with CleanCut's. To keep both, use the compose
+file directly instead: **Stacks** > **Add stack** > **Repository**, repository URL
+`https://github.com/LumbleHamb/cleancut-store`, compose path `portainer/docker-compose.yml`,
+and add a `MEDIA_PATH` environment variable.
 
 ## Moving from a Custom Install
 

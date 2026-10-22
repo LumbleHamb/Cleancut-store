@@ -1,0 +1,63 @@
+{
+  "version": "3",
+  "templates": [
+    {
+      "id": 1,
+      "type": 3,
+      "title": "CleanCut Suite",
+      "name": "cleancut",
+      "description": "All-in-one media manager and profanity filter for Plex. Mutes just the swear word, stars it out in subtitles, labels clean titles Kid Safe. Paid app with a free trial.",
+      "note": "<b>CleanCut Suite</b> mutes just the swear word (not the whole line) in the movies and shows on your Plex server, stars it out in the subtitles, and listens to the audio when subtitles are missing. Clean titles get a <b>Kid Safe</b> label in Plex for kid profiles (limiting profiles by label needs Plex Pass). Suite also finds and adds titles from sources you add yourself: none are included or enabled by default. Optional built-in VPN (that is the only reason for the NET_ADMIN permission).<br><br><b>Prices:</b> free trial on 3 movies and 10 TV episodes, every feature, no card. Then CleanCut Cleaner $2.99 or CleanCut Suite $5.99, once (Cleaner to Suite later: $3). No subscription. Launch prices: the price rises for new buyers as features are added.<br><br><b>Before you deploy:</b> set the movies and shows folder to the same folder Plex uses. CleanCut rewrites those files to add a clean audio track and keeps the original audio inside each file as a backup track, so back up anything irreplaceable first. Then open port 8585 and follow the setup guide: <a href=\"https://shop.harrelsons.org/cleancut/install/\" target=\"_blank\">install guide</a>, <a href=\"https://shop.harrelsons.org/cleancut/help/\" target=\"_blank\">help</a>.",
+      "categories": ["Multimedia", "Plex"],
+      "platform": "linux",
+      "logo": "https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/assets/icon.png",
+      "repository": {
+        "url": "https://github.com/LumbleHamb/cleancut-store",
+        "stackfile": "portainer/docker-compose.yml"
+      },
+      "env": [
+        {
+          "name": "MEDIA_PATH",
+          "label": "Movies and shows folder",
+          "description": "Host folder with your movies and shows, the same one Plex uses (for example /srv/media). Mounted at /media."
+        },
+        {
+          "name": "CONFIG_PATH",
+          "label": "Settings folder",
+          "description": "Host folder for CleanCut's settings, word list, history and backups (small).",
+          "default": "/opt/cleancut/config"
+        },
+        {
+          "name": "DATA_PATH",
+          "label": "Downloads folder (optional)",
+          "description": "Host folder where new titles are saved if you turn on finding and downloading. Mounted at /data.",
+          "default": "/opt/cleancut/data"
+        },
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "description": "User ID that owns your movie and show files (run: id -u).",
+          "default": "1000"
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "description": "Group ID that owns your movie and show files (run: id -g).",
+          "default": "1000"
+        },
+        {
+          "name": "TZ",
+          "label": "Time zone",
+          "description": "Your time zone, for schedules and logs (for example America/Chicago).",
+          "default": "Etc/UTC"
+        },
+        {
+          "name": "WEB_PORT",
+          "label": "Web UI port",
+          "description": "Port on the host for the CleanCut dashboard.",
+          "default": "8585"
+        }
+      ]
+    }
+  ]
+}

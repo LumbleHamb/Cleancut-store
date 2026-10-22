@@ -1,0 +1,35 @@
+# CleanCut Suite for Portainer (App Templates -> "CleanCut Suite", a Compose stack).
+# Portainer fills the ${...} values from the template form (portainer/templates.json).
+# You can also deploy this file by hand: Stacks -> Add stack -> Repository, or paste it in the
+# web editor and set the same variables under "Environment variables".
+#
+# Same container as the CasaOS/ZimaOS store app (Apps/CleanCut/docker-compose.yml):
+#   web UI on port 8585, /config = settings, /media = your movie and show folders,
+#   /data = optional downloads, PUID/PGID/TZ, 60 s stop grace.
+
+services:
+  clean-media:
+    image: ghcr.io/lumblehamb/clean-media-stack:1.2.1
+    container_name: clean-media
+    restart: unless-stopped
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        reservations:
+          memory: 1024M
+    cap_add:
+      - NET_ADMIN   # only for the optional VPN and its kill switch; the VPN creates its own tunnel device
+    # Intel/AMD graphics (optional, faster video shrinking): add  devices: ["/dev/dri:/dev/dri"]
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    ports:
+      - "${WEB_PORT:-8585}:8585"
+    volumes:
+      - ${CONFIG_PATH:-/opt/cleancut/config}:/config
+      # The same movie and show folders Plex uses. CleanCut rewrites these files to add a clean
+      # audio track and keeps the original audio inside each file as a backup track.
+      - ${MEDIA_PATH:?Set MEDIA_PATH to the folder with your movies and shows}:/media
+      # Optional: where new titles are saved if you turn on finding and downloading.
+      - ${DATA_PATH:-/opt/cleancut/data}:/data

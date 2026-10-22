@@ -13,7 +13,7 @@ Docs change only. Adds one `StoreSourceCard` for the **CleanCut Store** to `docs
 - CasaOS (v1 zip): `https://github.com/LumbleHamb/cleancut-store/archive/refs/heads/main.zip`
 - Source repo: https://github.com/LumbleHamb/cleancut-store
 
-The store is built with `IceWhaleTech/build-appstore-action` on every push, and the image (`ghcr.io/lumblehamb/clean-media-stack`) is public and multi-arch (amd64 + arm64). The app ships with no download sources: no sources are included or enabled by default, and the user is responsible for what they download. `NET_ADMIN` and `/dev/net/tun` are used only by an optional VPN inside the container.
+The store is built with `IceWhaleTech/build-appstore-action` on every push, and the image (`ghcr.io/lumblehamb/clean-media-stack`) is public and multi-arch (amd64 + arm64). The app ships with no download sources: no sources are included or enabled by default, and the user is responsible for what they download. `NET_ADMIN` is used only by an optional VPN inside the container (it creates its own tunnel device).
 
 **How I checked it.**
 1. Both store URLs above return HTTP 200, and `store.json` reports `store_id: org.harrelsons.cleancut-store`.

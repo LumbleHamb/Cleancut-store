@@ -19,7 +19,7 @@ environment:
     note: Your time zone, for schedules and logs (for example America/Chicago).
 category: media
 name: CleanCut Suite
-version: "1.2.1"
+version: "1.3.0"
 tagline: All-in-one media manager and profanity filter for Plex
 icon: https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@main/Apps/CleanCut/icon.svg
 description: >-
@@ -56,10 +56,16 @@ description: >-
 
   Install guide: https://shop.harrelsons.org/cleancut/install/
 releaseNotes: >-
-  Choose your own movie and show folders to clean; the original audio stays inside each file
-  as a backup. No sources are included or enabled by default. New prices: CleanCut Cleaner
-  $2.99, CleanCut Suite $5.99, upgrade $3.
-
+  Kids' Plex profiles set up for you: switch on Kid next to each child. No Plex Pass? A Kids
+  library with only clean titles instead. Helper computers: a gaming PC or laptop at home can
+  listen for words and save space for the server. The Windows helper app uses the graphics chip.
+  Space saving: oversized videos are re-saved smaller, checked frame by frame first, on a schedule
+  you choose. Wrong version (a dub, a foreign cut of an old cartoon)? Pick a different copy,
+  described in plain words. Titles without English sound are pointed out. Downloads get tidy file
+  names. Phone notifications and a weekly summary. Moderate now also mutes damn, hell and goddamn;
+  titles you already have are checked again by themselves. Fixes: a paused movie no longer holds
+  up cleaning, forced subtitles, kid labels with Plex 1.43. Tested on Intel/AMD servers. The
+  Raspberry Pi version was tested in emulation, not yet on a real Pi.
 developer: CleanCut Suite
 website: https://shop.harrelsons.org/cleancut/
 dependencies: []

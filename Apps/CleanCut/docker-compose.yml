@@ -15,7 +15,7 @@
 name: clean-media
 services:
   clean-media:
-    image: ghcr.io/lumblehamb/clean-media-stack:1.2.1
+    image: ghcr.io/lumblehamb/clean-media-stack:1.3.0
     container_name: clean-media
     network_mode: bridge             # no new Docker network needed (some servers have none left)
     restart: unless-stopped
@@ -149,18 +149,19 @@ x-casaos:
   architectures:
     - amd64
     - arm64
-  version: "1.2.1"
-  update_at: "2026-10-18"
+  version: "1.3.0"
+  update_at: "2026-10-24"
   release_notes:
     en_US: |-
-      - New prices: CleanCut Cleaner $2.99 (just the cleaning for the movies already on your Plex), CleanCut Suite $5.99 (the all-in-one media manager and profanity filter). Upgrade to Suite any time for $3. Launch prices: the price rises for new buyers as features are added; yours forever once bought.
-      - Your license key now decides the edition; existing keys stay Suite.
-      - Setup now starts with one question: clean the movies and shows already on your Plex, or also find and download new ones.
-      - Choose your own movie and show folders to clean. The original audio stays inside each file as a backup.
-      - Video shrinking stays off for your own folders unless you turn it on.
-      - Sources: no sources are included or enabled by default. You add the ones you want yourself, in Settings.
-      - Downloads now stop sharing with other people as soon as they finish. To change that, use the new setting Keep sharing after a download finishes (off by default).
-      - Family collections have new names.
+      - Kids' Plex profiles set up for you: switch on Kid next to each child. No Plex Pass? A Kids library with only clean titles instead.
+      - Helper computers: a gaming PC or laptop at home can listen for words and save space for the server. The Windows helper app uses the graphics chip.
+      - Space saving: oversized videos are re-saved smaller, checked frame by frame first, on a schedule you choose.
+      - Wrong version (a dub, a foreign cut of an old cartoon)? Pick a different copy, described in plain words. Titles without English sound are pointed out.
+      - Downloads get tidy file names.
+      - Phone notifications and a weekly summary.
+      - Moderate now also mutes damn, hell and goddamn; titles you already have are checked again by themselves.
+      - Fixes: a paused movie no longer holds up cleaning, forced subtitles, kid labels with Plex 1.43.
+      - Tested on Intel/AMD servers. The Raspberry Pi version was tested in emulation, not yet on a real Pi.
   website: https://shop.harrelsons.org/cleancut/
   repo: https://github.com/LumbleHamb/cleancut-store
   support: https://shop.harrelsons.org/cleancut/help/

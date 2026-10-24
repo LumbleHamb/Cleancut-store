@@ -1,0 +1,39 @@
+{
+  "thumbnail": "/apps/org.harrelsons.cleancut/assets/thumbnail.webp",
+  "screenshot_link": [
+    "/apps/org.harrelsons.cleancut/assets/screenshot-1.webp",
+    "/apps/org.harrelsons.cleancut/assets/screenshot-2.webp",
+    "/apps/org.harrelsons.cleancut/assets/screenshot-3.webp",
+    "/apps/org.harrelsons.cleancut/assets/screenshot-4.webp"
+  ],
+  "tagline": "All-in-one media manager and profanity filter for Plex.",
+  "description": "CleanCut Suite is an all-in-one media manager and profanity filter for Plex. It finds and adds new movies and shows, like Radarr, Sonarr and a download client in one app, and it mutes the swearing in the movies and shows on your Plex before your kids press play. CleanCut Cleaner is just the cleaning, for media you already have.\n\nChoose the folders your movies and shows are in, and CleanCut mutes each bad word in the audio (the word, not the whole line) and stars it out in the subtitles. You pick the level (Lite, Moderate or Strict) and can add your own words. The picture is never re-encoded, and the original audio stays inside each file as a backup track, so you can undo a mute later. No subtitles? CleanCut can listen to the audio itself, on your server. Nothing is uploaded.\n\nClean titles get a Kid Safe label in Plex, so kid profiles only see titles that are cleaned and within the age limit you choose (for example, up to PG). New titles stay hidden from kids until they are cleaned.\n\nMedia manager (CleanCut Suite): CleanCut finds and adds new movies and shows for you, and cleans them as they arrive. It works with sources you add yourself: no sources are included or enabled by default, and you are responsible for what you download. An optional built-in VPN with a kill switch keeps your home address private while CleanCut downloads.\n\nFree trial: 3 movies and 10 TV episodes, every feature, no card. Then CleanCut Cleaner $2.99 or CleanCut Suite $5.99, once (Cleaner to Suite later: $3). These are launch prices: the price rises for new buyers as features are added, and if you've bought, it's yours forever, with free updates. There is no CleanCut subscription. You need Plex Media Server. Limiting kid profiles by label needs Plex Pass (Plex Pass and a VPN are separate services from other companies). 30-day money-back guarantee.",
+  "tips": {
+    "before_install": "You need Plex Media Server (Plex Pass is needed to limit kid profiles to Kid Safe titles) and at least 4 GB of RAM (a Raspberry Pi 5 or a 64-bit Intel/AMD mini-PC). CleanCut sees your movies and shows under /media (your /DATA/Media folder). If they are on another drive, change the /media folder under Volumes before installing. CleanCut rewrites those files to add the clean audio track, so back up anything irreplaceable first. The NET_ADMIN permission is only used by the optional VPN and its kill switch. After installing, open CleanCut on port 8585 and follow the setup guide (about ten minutes). Guide: https://shop.harrelsons.org/cleancut/install/"
+  },
+  "author": "CleanCut Suite",
+  "developer": "CleanCut Suite",
+  "category": "Media",
+  "architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "update_at": "2026-10-24",
+  "website": "https://shop.harrelsons.org/cleancut/",
+  "repo": "https://github.com/LumbleHamb/cleancut-store",
+  "support": "https://shop.harrelsons.org/cleancut/help/",
+  "docs": "https://shop.harrelsons.org/cleancut/install/",
+  "title": "CleanCut Suite",
+  "release_note": "- Kids' Plex profiles set up for you: switch on Kid next to each child. No Plex Pass? A Kids library with only clean titles instead.\n- Helper computers: a gaming PC or laptop at home can listen for words and save space for the server. The Windows helper app uses the graphics chip.\n- Space saving: oversized videos are re-saved smaller, checked frame by frame first, on a schedule you choose.\n- Wrong version (a dub, a foreign cut of an old cartoon)? Pick a different copy, described in plain words. Titles without English sound are pointed out.\n- Downloads get tidy file names.\n- Phone notifications and a weekly summary.\n- Moderate now also mutes damn, hell and goddamn; titles you already have are checked again by themselves.\n- Fixes: a paused movie no longer holds up cleaning, forced subtitles, kid labels with Plex 1.43.\n- Tested on Intel/AMD servers. The Raspberry Pi version was tested in emulation, not yet on a real Pi.",
+  "base_url": "https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@gh-pages",
+  "id": "org.harrelsons.cleancut",
+  "version": "1.3.0",
+  "categories": [
+    "media"
+  ],
+  "min_memory": 1073741824,
+  "min_image_size": {
+    "amd64": 847920073,
+    "arm64": 777528158
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "updated_at": "2026-10-24T21:17:51Z",
+  "app_count": 1,
+  "base_url": "https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@gh-pages",
+  "apps": [
+    {
+      "id": "org.harrelsons.cleancut",
+      "title": "CleanCut Suite",
+      "tagline": "All-in-one media manager and profanity filter for Plex.",
+      "category": "Media",
+      "categories": [
+        "media"
+      ],
+      "author": "CleanCut Suite",
+      "developer": "CleanCut Suite",
+      "architectures": [
+        "amd64",
+        "arm64"
+      ],
+      "icon": "/apps/org.harrelsons.cleancut/assets/icon.svg",
+      "thumbnail": "/apps/org.harrelsons.cleancut/assets/thumbnail.webp",
+      "compose_url": "/apps/org.harrelsons.cleancut/docker-compose.yml",
+      "meta_url": "/apps/org.harrelsons.cleancut/meta.json",
+      "content_hash": "8f98dad2",
+      "version": "1.3.0"
+    }
+  ]
+}

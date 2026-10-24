@@ -1,0 +1,57 @@
+# CleanCut Suite in the CleanCut store (CasaOS and ZimaOS).
+# Every file named below must sit next to this one, or the store build fails:
+#   icon.svg, thumbnail.png (784x442), screenshot-1.png ... screenshot-4.png (1280x720).
+# Format: v2 store protocol (top-level x-casaos.id, en_US keys, version), the same as the
+# developer-submitted apps in IceWhaleTech/CasaOS-AppStore.
+#
+# Kept identical to the Custom Install (casaos-app.yaml in the app repo) on purpose, so
+# people who move over keep their settings:
+#   name / service / container  clean-media  -> settings stay in /DATA/AppData/clean-media/config
+#   port 8585, /DATA/Media -> /media, /DATA/Media/data -> /data, NET_ADMIN,
+#   60 s stop grace, PUID/PGID/TZ.
+# The image is pinned to the release tag. The store build adds the matching digest for each
+# architecture itself (docker-compose.<arch>.yml in the built store), so no digest here.
+
+name: clean-media
+services:
+  clean-media:
+    image: ghcr.io/lumblehamb/clean-media-stack:1.3.0
+    container_name: clean-media
+    network_mode: bridge             # no new Docker network needed (some servers have none left)
+    restart: unless-stopped
+    stop_grace_period: 60s
+    deploy:
+      resources:
+        reservations:
+          memory: 1024M
+    cap_add:
+      - NET_ADMIN                      # only for the optional VPN and its kill switch (inside the container); the VPN creates its own tunnel device
+    # Intel/AMD graphics (optional, faster video shrinking): add a devices: entry for /dev/dri:/dev/dri here.
+    environment:
+      PUID: $PUID
+      PGID: $PGID
+      TZ: $TZ
+    ports:
+      - target: 8585
+        published: "8585"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /DATA/AppData/$AppID/config
+        target: /config
+      - type: bind
+        source: /DATA/Media
+        target: /media
+      - type: bind
+        source: /DATA/Media/data
+        target: /data
+x-casaos:
+  id: org.harrelsons.cleancut
+  main: clean-media
+  index: /
+  port_map: "8585"
+  scheme: http
+  icon: https://cdn.jsdelivr.net/gh/LumbleHamb/cleancut-store@gh-pages/apps/org.harrelsons.cleancut/assets/icon.svg
+  title:
+    en_US: CleanCut Suite
+  version: "1.3.0"

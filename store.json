@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "store_id": "org.harrelsons.cleancut-store",
+  "name": "CleanCut Store",
+  "description": "CleanCut Suite: an all-in-one media manager and profanity filter for Plex. Finds and adds new movies and shows, and mutes the swearing before your kids press play.",
+  "maintainer": "CleanCut Suite",
+  "url": "https://github.com/LumbleHamb/cleancut-store"
+}
